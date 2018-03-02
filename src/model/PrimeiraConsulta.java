@@ -37,8 +37,7 @@ public class PrimeiraConsulta extends Consulta {
 	private float iMC;
 	private String observacaoExameFisico;
 	
-	public PrimeiraConsulta() {
-	};
+	
 	
 	public byte getAlimentacaoPrimeiroSemestre() {
 		return alimentacaoPrimeiroSemestre;

@@ -3,8 +3,8 @@ package model;
 import java.sql.Date;
 
 public class Consulta {
-	private String numero_prontuario;
-	private int pediatra_CRM;
+	private String numeroProntuario;
+	private int pediatraCRM;
 	private Date dataHora;
 	private String qPD;
 	private String hDA;
@@ -16,17 +16,17 @@ public class Consulta {
 	private String diagnostico;
 	private String conduta;
 	private String observacoesFinais;
-	public String getNumero_prontuario() {
-		return numero_prontuario;
+	public String getNumeroprontuario() {
+		return numeroProntuario;
 	}
-	public void setNumero_prontuario(String numero_prontuario) {
-		this.numero_prontuario = numero_prontuario;
+	public void setNumeroprontuario(String numero_prontuario) {
+		this.numeroProntuario = numero_prontuario;
 	}
-	public int getPediatra_CRM() {
-		return pediatra_CRM;
+	public int getPediatraCRM() {
+		return pediatraCRM;
 	}
-	public void setPediatra_CRM(int pediatra_CRM) {
-		this.pediatra_CRM = pediatra_CRM;
+	public void setPediatraCRM(int pediatra_CRM) {
+		this.pediatraCRM = pediatra_CRM;
 	}
 	public String getqPD() {
 		return qPD;
@@ -94,5 +94,7 @@ public class Consulta {
 	public void setConduta(String conduta) {
 		this.conduta = conduta;
 	}
+	
+	
 	
 }
