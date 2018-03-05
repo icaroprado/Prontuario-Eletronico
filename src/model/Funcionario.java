@@ -1,7 +1,5 @@
 package model;
 
-import java.util.ArrayList;
-
 public class Funcionario {
 
 	private String cPF;
@@ -10,54 +8,69 @@ public class Funcionario {
 	private String login;
 	private String senha;
 	private String email;
-	private byte atribuicoes;//se eh gestor, ou outro possivel tipo de cargo a ser incluido aqui
-	private ArrayList<String> telefone;
+	private int atribuicoes;//se eh gestor, ou outro possivel tipo de cargo a ser incluido aqui
+	private String telefone;
+	
+	public Funcionario() {};
+	public Funcionario(String cPF,String primeiroNome, String sobrenome, String login, String senha, String email, String telefone) {
+		this.setcPF(cPF);
+		this.setPrimeiroNome(primeiroNome);
+		this.setSobrenome(sobrenome);
+		this.setLogin(login);
+		this.setSenha(senha);
+		this.setAtribuicoes(0);
+		this.setTelefone(telefone);	
+	}
+	
 	public String getcPF() {
 		return cPF;
-	}
+	};
 	public void setcPF(String cPF) {
 		this.cPF = cPF;
-	}
+	};
 	public String getSobrenome() {
 		return sobrenome;
-	}
+	};
 	public void setSobrenome(String sobrenome) {
 		this.sobrenome = sobrenome;
-	}
+	};
 	public String getPrimeiroNome() {
 		return primeiroNome;
-	}
+	};
 	public void setPrimeiroNome(String primeiroNome) {
 		this.primeiroNome = primeiroNome;
-	}
+	};
 	public String getSenha() {
 		return senha;
-	}
+	};
 	public void setSenha(String senha) {
 		this.senha = senha;
-	}
+	};
 	public String getLogin() {
 		return login;
-	}
+	};
 	public void setLogin(String login) {
 		this.login = login;
-	}
+	};
 	public String getEmail() {
 		return email;
-	}
+	};
 	public void setEmail(String email) {
 		this.email = email;
-	}
-	public ArrayList<String> getTelefone() {
+	};
+	public String getTelefone() {
 		return telefone;
-	}
-	public void setTelefone(ArrayList<String> telefone) {
+	};
+	public void setTelefone(String telefone) {
 		this.telefone = telefone;
-	}
-	public byte getAtribuicoes() {
+	};
+	public int getAtribuicoes() {
 		return atribuicoes;
-	}
-	public void setAtribuicoes(byte atribuicoes) {
+	};
+	public void setAtribuicoes(int atribuicoes) {
 		this.atribuicoes = atribuicoes;
-	} 
+	}; 
+	public String getNomeCompleto() {
+		return primeiroNome+sobrenome;
+	}
 }

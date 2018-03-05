@@ -1,5 +1,7 @@
 package model;
 
+import java.sql.SQLException;
+
 public interface Servicos {
 	public void exibirGraficoIMC();
 	public void exibirGraficoPerimetroCefalico();
@@ -11,5 +13,7 @@ public interface Servicos {
 	public void exibirFormCadastroPediatra();
 	public void exibirRelatorio();
 	public void exibirFormLogin();
-	
+	public void cadastrarPediatra(Pediatra pediatra) throws SQLException;
+	public void cadastrarFuncionario(Funcionario funcionario);
+	public void cadastrarPaciente(Paciente paciente) throws SQLException;
 }

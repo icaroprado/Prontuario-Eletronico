@@ -18,7 +18,7 @@ public class Paciente {
 	private String numeroCartaoSus;
 	private String racaCorEtnia;
 	private char sexo;
-	private byte grupoSanguineo;
+	private int grupoSanguineo;
 	private ArrayList<String> telefone;
 	
 	
@@ -106,14 +106,18 @@ public class Paciente {
 	public void setRacaCorEtnia(String racaCorEtnia) {
 		this.racaCorEtnia = racaCorEtnia;
 	}
-	public byte getGrupoSanguineo() {
+	public int getGrupoSanguineo() {
 		return grupoSanguineo;
 	}
-	public void setGrupoSanguineo(byte grupoSanguineo) {
+	public void setGrupoSanguineo(int grupoSanguineo) {
 		this.grupoSanguineo = grupoSanguineo;
 	}
-	public char getSexo() {
-		return sexo;
+	public String getSexo() {
+		if (sexo=='M')
+				return "M";
+		else 
+			return "F";						
+		
 	}
 	public void setSexo(char sexo) {
 		this.sexo = sexo;
