@@ -1,0 +1,64 @@
+@charset "UTF-8";
+
+form {
+	width: 640px;
+	margin: auto;
+}
+form#pacientes {
+	width: 640px;
+	margin: auto;
+}
+
+input, textarea {
+	font-family: sans-serif;
+	font-weight: normal;
+	font-size: 12pt;
+}
+
+input:hover, textarea {
+	background-color: #E6E6FA;
+}
+
+legend {
+	color: #367AB4;
+	font-weight: bold;
+	font-size: 12pt;
+	font-family: sans-serif;
+}
+
+p {
+	font-weight: normal;
+	font-size: 12pt;
+	font-family: sans-serif;
+}
+
+fieldset {
+	border-color: #cecece;
+	margin: 10px;
+}
+
+fieldset#sexo {
+	width: 120px;
+}
+
+fieldset#login {
+	width: 300px;
+	margin: 150px auto auto auto;
+}
+
+input#userLogin {
+	margin: auto;
+	width: 300px;
+	height: 20px;
+}
+input#userPassword, input#userLogin, button#login {
+	margin: auto;
+	width: 300px;
+	height: 30px;
+}
+
+img#logoLogin {
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
