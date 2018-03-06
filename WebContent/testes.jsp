@@ -21,19 +21,29 @@
       con = new ConnectionFactory().getConnection();
       out.println("Conexão efetuada com sucesso");
       FacadeServicos fachada = new FacadeServicos(con);
-      Pediatra joao = new Pediatra();
-      joao.setcPF("00012345679");
-      joao.setcRM(01);
-      joao.setEmail("blabla@gmail.com");
-      joao.setLogin("joaozin");
-      joao.setSenha("jo1ao2zin3");
-      joao.setNome("Joao da Silva");      
-      joao.setTelefone("79 999998888");
-      fachada.cadastrarPediatra(joao);
-      out.println("Pediatra inserido no banco!");
-      Pediatra teste;
-      teste = fachada.realizarLogin(joao.getLogin(), joao.getSenha());
-      out.println(teste.getNome());      
+      Paciente joao = new Paciente();
+      joao.setCpfMae("00123456789");
+      joao.setCpfPai("00123456787");
+      joao.setDataNascimento("26/09/1990");
+      joao.setGrupoSanguineo(1);
+      joao.setNaturalidade("BRporra!");
+      joao.setNomeMae("Dona Maria");
+      joao.setNomePai("Seu jose");
+      joao.setNumeroCartaoSus("3541246");
+      joao.setNumeroDeclaracaoNascidoVivo("6476");
+      joao.setNumeroRegistroCivilNascimento("3972");
+      joao.setPrimeiroNome("Joao");
+      joao.setSobrenome("Da Silva");
+      joao.setRacaCorEtnia("pardo");
+      joao.setRg("3086777-2");
+      joao.setSexo('M');
+      joao.setNumeroProntuario("1");      
+      fachada.cadastrarPaciente(joao);
+      
+      Paciente teste;
+      teste = fachada.buscarPaciente("1");
+      out.println(" o rg de fulano eh " + teste.getRg() );
+      
       con.close();      
       
    } catch (Exception e) {  

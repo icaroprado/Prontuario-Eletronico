@@ -16,6 +16,25 @@ public class Consulta {
 	private String diagnostico;
 	private String conduta;
 	private String observacoesFinais;
+	
+	public Consulta(String numeroProntuario, int pediatraCRM, Date dataHora, String qPD, String hDA, String iS,
+			float peso, float comprimento, float perimetroCefalico, String observacaoExamefisico, String diagnostico,
+			String conduta, String observacoesFinais) {
+		super();
+		this.numeroProntuario = numeroProntuario;
+		this.pediatraCRM = pediatraCRM;
+		this.dataHora = dataHora;
+		this.qPD = qPD;
+		this.hDA = hDA;
+		this.iS = iS;
+		this.peso = peso;
+		this.comprimento = comprimento;
+		this.perimetroCefalico = perimetroCefalico;
+		this.observacaoExamefisico = observacaoExamefisico;
+		this.diagnostico = diagnostico;
+		this.conduta = conduta;
+		this.observacoesFinais = observacoesFinais;
+	}
 	public String getNumeroprontuario() {
 		return numeroProntuario;
 	}

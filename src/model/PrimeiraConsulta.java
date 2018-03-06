@@ -1,7 +1,16 @@
 package model;
 
+import java.sql.Date;
+
 public class PrimeiraConsulta extends Consulta {
 	
+	public PrimeiraConsulta(String numeroProntuario, int pediatraCRM, Date dataHora, String qPD, String hDA, String iS,
+			float peso, float comprimento, float perimetroCefalico, String observacaoExamefisico, String diagnostico,
+			String conduta, String observacoesFinais) {
+		super(numeroProntuario, pediatraCRM, dataHora, qPD, hDA, iS, peso, comprimento, perimetroCefalico,
+				observacaoExamefisico, diagnostico, conduta, observacoesFinais);
+		// TODO Auto-generated constructor stub
+	}
 	private byte  alimentacaoPrimeiroSemestre;
 	private byte  alimentacaoSegundoSemestre;
 	private String evolucaoAlimentacao;

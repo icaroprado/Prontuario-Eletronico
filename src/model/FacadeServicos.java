@@ -1,9 +1,11 @@
 package model;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 
 public class FacadeServicos implements Servicos {
@@ -174,6 +176,46 @@ public class FacadeServicos implements Servicos {
 				}	
 		}
 		return pediatra ;
+	}
+	@Override
+	public Paciente buscarPaciente(String numeroProntuario) throws SQLException {
+		String sql = 
+					"SELECT * FROM bancopediatria.paciente AS p "
+				+ 	"WHERE p.numeroprontuario = ? ";
+		setStm(con.prepareStatement(sql));
+		stm.setString(1, numeroProntuario);
+		rs = stm.executeQuery();
+		Paciente paciente = null;
+		if (rs.isBeforeFirst()) {
+			rs.next();
+			paciente = new Paciente(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6),
+					rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10),rs.getString(11),rs.getString(12),rs.getString(13),
+					rs.getString(14),rs.getString(15).charAt(0), rs.getInt(16) );
+			sql = 
+					"SELECT telefone FROM bancopediatria.telefonespacientes as t "
+				+	"WHERE t.paciente_numeroprontuario = ?";
+			setStm(con.prepareStatement(sql));
+			stm.setString(1, numeroProntuario);
+			rs = stm.executeQuery();
+			if (rs.isBeforeFirst()) {
+				ArrayList<String> telefones = new ArrayList<String>();
+				while (rs.next()) {
+					telefones.add(rs.getString(1));
+				}
+				paciente.setTelefone(telefones);
+			}
+			return paciente;
+		}
+		
+		
+		return paciente;
+	}
+	@Override
+		public void registrarConsulta(String numeroProntuario, int crm, Date dataHora, String qpd, String hda,String is, float peso, float comprimento, float perimetroCefalico,
+				String observacaoExameFisico,String diagnostico, String conduta, String observacoesFinais) throws SQLException {		
+		Consulta consulta = new Consulta(numeroProntuario, crm, dataHora, qpd, hda, is, peso, comprimento, perimetroCefalico, observacaoExameFisico, diagnostico, conduta, observacoesFinais);
+		
+		
 	}
 
 	

@@ -3,7 +3,7 @@ package model;
 import java.util.ArrayList;
 
 public class Paciente {
-	private String primeiroNome;
+	private String primeiroNome;	
 	private String numeroProntuario;
 	private String sobrenome;
 	private String rg;
@@ -21,6 +21,32 @@ public class Paciente {
 	private int grupoSanguineo;
 	private ArrayList<String> telefone;
 	
+	public Paciente() {	
+	
+	}
+	public Paciente(String primeiroNome, String numeroProntuario, String sobrenome, String rg, String dataNascimento,
+			String naturalidade, String nomePai, String nomeMae, String cpfPai, String cpfMae,
+			String numeroRegistroCivilNascimento, String numeroDeclaracaoNascidoVivo, String numeroCartaoSus,
+			String racaCorEtnia, char sexo, int grupoSanguineo) {
+		super();
+		this.primeiroNome = primeiroNome;
+		this.numeroProntuario = numeroProntuario;
+		this.sobrenome = sobrenome;
+		this.rg = rg;
+		this.dataNascimento = dataNascimento;
+		this.naturalidade = naturalidade;
+		this.nomePai = nomePai;
+		this.nomeMae = nomeMae;
+		this.cpfPai = cpfPai;
+		this.cpfMae = cpfMae;
+		this.numeroRegistroCivilNascimento = numeroRegistroCivilNascimento;
+		this.numeroDeclaracaoNascidoVivo = numeroDeclaracaoNascidoVivo;
+		this.numeroCartaoSus = numeroCartaoSus;
+		this.racaCorEtnia = racaCorEtnia;
+		this.sexo = sexo;
+		this.grupoSanguineo = grupoSanguineo;
+		
+	}
 	
 	public String getPrimeiroNome() {
 		return primeiroNome;
