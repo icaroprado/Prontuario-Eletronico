@@ -7,15 +7,24 @@ public class Pediatra extends Funcionario {
 		this.setAtribuicoes(1);
 	};
 
-	public Pediatra(String cPF, String primeiroNome, String sobrenome,int cRM, String login, String senha, String email, String telefone) {
+	public Pediatra(String cPF, String nome,int cRM, String login, String senha, String email, String telefone) {
 		this.setcPF(cPF);
-		this.setPrimeiroNome(primeiroNome);
-		this.setSobrenome(sobrenome);
+		this.setNome(nome);
 		this.setLogin(login);
 		this.setSenha(senha);
 		this.setAtribuicoes(1);
 		this.setTelefone(telefone);
 		this.setcRM(cRM);
+		
+	}
+	public Pediatra(Funcionario funcionario, int crm) {
+		this.cRM=crm;
+		this.setAtribuicoes(1);
+		this.setNome(funcionario.getNome());
+		this.setLogin(funcionario.getLogin());
+		this.setcPF(funcionario.getcPF());
+		this.setSenha(funcionario.getSenha());
+		this.setTelefone(funcionario.getTelefone());
 		
 	}
 	

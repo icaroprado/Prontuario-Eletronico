@@ -2,6 +2,7 @@ package model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 
@@ -9,6 +10,7 @@ public class FacadeServicos implements Servicos {
 	
 	private PreparedStatement stm;
 	private Connection con;	
+	private ResultSet rs;
 	
 	public FacadeServicos(Connection con) {
 		//stm = con.prepareStatement("");
@@ -89,7 +91,7 @@ public class FacadeServicos implements Servicos {
 				
 		setStm(con.prepareStatement(sql));
 		stm.setString(1, pediatra.getcPF());
-		stm.setString(2, pediatra.getNomeCompleto());
+		stm.setString(2, pediatra.getNome());
 		stm.setString(3, pediatra.getLogin());
 		stm.setString(4, pediatra.getSenha());
 		stm.setString(5, pediatra.getTelefone());
@@ -145,6 +147,33 @@ public class FacadeServicos implements Servicos {
 		stm.setInt(16, paciente.getGrupoSanguineo());
 		stm.execute();
 		
+	}
+	@Override
+	public Pediatra realizarLogin(String login, String senha) throws SQLException {
+		String sql =
+				"SELECT * FROM bancopediatria.funcionario as f "
+			+   "WHERE f.login = ? AND f.senha= ?";
+		setStm(con.prepareStatement(sql));
+		stm.setString(1, login);
+		stm.setString(2, senha);		
+		rs = stm.executeQuery();
+		Pediatra pediatra = null;
+		if (rs.isBeforeFirst() ){
+			rs.next();
+			Funcionario funcionario = new Funcionario(rs.getString(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getString(5),rs.getString(6));
+			sql =
+					"SELECT * FROM bancopediatria.pediatra as f "
+				+	"WHERE f.funcionario_cpf = ?  ";
+				setStm(con.prepareStatement(sql));
+				stm.setString(1, funcionario.getcPF());
+				rs= stm.executeQuery();
+				if (rs.isBeforeFirst()) {					
+					rs.next();
+					pediatra = new Pediatra(funcionario,rs.getInt(1));					
+					return pediatra;
+				}	
+		}
+		return pediatra ;
 	}
 
 	

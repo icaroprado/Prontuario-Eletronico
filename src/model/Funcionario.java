@@ -2,9 +2,8 @@ package model;
 
 public class Funcionario {
 
-	private String cPF;
-	private String primeiroNome;
-	private String sobrenome;
+	private String cPF;	
+	private String nome;
 	private String login;
 	private String senha;
 	private String email;
@@ -12,10 +11,9 @@ public class Funcionario {
 	private String telefone;
 	
 	public Funcionario() {};
-	public Funcionario(String cPF,String primeiroNome, String sobrenome, String login, String senha, String email, String telefone) {
+	public Funcionario(String cPF,String nome, String login, String senha, String email, String telefone) {
 		this.setcPF(cPF);
-		this.setPrimeiroNome(primeiroNome);
-		this.setSobrenome(sobrenome);
+		this.setNome(nome);
 		this.setLogin(login);
 		this.setSenha(senha);
 		this.setAtribuicoes(0);
@@ -27,19 +25,7 @@ public class Funcionario {
 	};
 	public void setcPF(String cPF) {
 		this.cPF = cPF;
-	};
-	public String getSobrenome() {
-		return sobrenome;
-	};
-	public void setSobrenome(String sobrenome) {
-		this.sobrenome = sobrenome;
-	};
-	public String getPrimeiroNome() {
-		return primeiroNome;
-	};
-	public void setPrimeiroNome(String primeiroNome) {
-		this.primeiroNome = primeiroNome;
-	};
+	};	
 	public String getSenha() {
 		return senha;
 	};
@@ -70,7 +56,11 @@ public class Funcionario {
 	public void setAtribuicoes(int atribuicoes) {
 		this.atribuicoes = atribuicoes;
 	}; 
-	public String getNomeCompleto() {
-		return primeiroNome+sobrenome;
+	
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 }

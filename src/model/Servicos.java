@@ -16,4 +16,5 @@ public interface Servicos {
 	public void cadastrarPediatra(Pediatra pediatra) throws SQLException;
 	public void cadastrarFuncionario(Funcionario funcionario);
 	public void cadastrarPaciente(Paciente paciente) throws SQLException;
+	public Pediatra realizarLogin(String login, String senha) throws SQLException;
 }
