@@ -1,24 +1,22 @@
 package model;
 
-import java.sql.Date;
-
 public class Consulta {
 	private String numeroProntuario;
 	private int pediatraCRM;
-	private Date dataHora;
+	private String dataHora;
 	private String qPD;
 	private String hDA;
 	private String iS;
-	private float peso;
-	private float comprimento;
-	private float perimetroCefalico;
+	private double peso;
+	private double comprimento;
+	private double perimetroCefalico;
 	private String observacaoExamefisico;
 	private String diagnostico;
 	private String conduta;
 	private String observacoesFinais;
 	
-	public Consulta(String numeroProntuario, int pediatraCRM, Date dataHora, String qPD, String hDA, String iS,
-			float peso, float comprimento, float perimetroCefalico, String observacaoExamefisico, String diagnostico,
+	public Consulta(String numeroProntuario, int pediatraCRM, String dataHora, String qPD, String hDA, String iS,
+			double peso, double comprimento, double perimetroCefalico, String observacaoExamefisico, String diagnostico,
 			String conduta, String observacoesFinais) {
 		super();
 		this.numeroProntuario = numeroProntuario;
@@ -53,10 +51,10 @@ public class Consulta {
 	public void setqPD(String qPD) {
 		this.qPD = qPD;
 	}
-	public Date getDataHora() {
+	public String getDataHora() {
 		return dataHora;
 	}
-	public void setDataHora(Date dataHora) {
+	public void setDataHora(String dataHora) {
 		this.dataHora = dataHora;
 	}
 	public String gethDA() {
@@ -65,10 +63,10 @@ public class Consulta {
 	public void sethDA(String hDA) {
 		this.hDA = hDA;
 	}
-	public float getPeso() {
+	public double getPeso() {
 		return peso;
 	}
-	public void setPeso(float peso) {
+	public void setPeso(double peso) {
 		this.peso = peso;
 	}
 	public String getiS() {
@@ -77,16 +75,16 @@ public class Consulta {
 	public void setiS(String iS) {
 		this.iS = iS;
 	}
-	public float getPerimetroCefalico() {
+	public double getPerimetroCefalico() {
 		return perimetroCefalico;
 	}
-	public void setPerimetroCefalico(float perimetroCefalico) {
+	public void setPerimetroCefalico(double perimetroCefalico) {
 		this.perimetroCefalico = perimetroCefalico;
 	}
-	public float getComprimento() {
+	public double getComprimento() {
 		return comprimento;
 	}
-	public void setComprimento(float comprimento) {
+	public void setComprimento(double comprimento) {
 		this.comprimento = comprimento;
 	}
 	public String getObservacaoExamefisico() {

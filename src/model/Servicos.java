@@ -1,6 +1,6 @@
 package model;
 
-import java.sql.Date;
+
 import java.sql.SQLException;
 
 public interface Servicos {
@@ -20,8 +20,8 @@ public interface Servicos {
 	
 	public Paciente buscarPaciente(String numeroProntuario) throws SQLException;
 	public Pediatra realizarLogin(String login, String senha) throws SQLException;
-	public void registrarConsulta(String numeroProntuario, int crm, Date dataHora, String qpd, String hda, String is,
-			float peso, float comprimento, float perimetroCefalico, String obeservacaoExameFisico, String diagnostico,
+	public void registrarConsulta(String numeroProntuario, int crm, String dataHora, String qpd, String hda, String is,
+			double peso, double comprimento, double perimetroCefalico, String obeservacaoExameFisico, String diagnostico,
 			String conduta, String observacoesFinais) throws SQLException;
 	
 	}

@@ -1,22 +1,37 @@
 package model;
 
 import java.sql.Connection;
-import java.sql.Date;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 
 public class FacadeServicos implements Servicos {
 	
 	private PreparedStatement stm;
 	private Connection con;	
-	private ResultSet rs;
+	private ResultSet rs;	
 	
 	public FacadeServicos(Connection con) {
 		//stm = con.prepareStatement("");
 		this.con=con;
+	}
+	
+	public Date conversorData(String data) {
+		SimpleDateFormat sdf1 = new SimpleDateFormat("dd/MM/yyyy");	
+		//Date dataConvertida = new Date();
+		try {
+			return sdf1.parse(data);
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 	public FacadeServicos() {
 		
@@ -193,7 +208,7 @@ public class FacadeServicos implements Servicos {
 					rs.getString(14),rs.getString(15).charAt(0), rs.getInt(16) );
 			sql = 
 					"SELECT telefone FROM bancopediatria.telefonespacientes as t "
-				+	"WHERE t.paciente_numeroprontuario = ?";
+				+	"WHERE t.paciente_numeroprontuario = ? ";
 			setStm(con.prepareStatement(sql));
 			stm.setString(1, numeroProntuario);
 			rs = stm.executeQuery();
@@ -211,10 +226,27 @@ public class FacadeServicos implements Servicos {
 		return paciente;
 	}
 	@Override
-		public void registrarConsulta(String numeroProntuario, int crm, Date dataHora, String qpd, String hda,String is, float peso, float comprimento, float perimetroCefalico,
-				String observacaoExameFisico,String diagnostico, String conduta, String observacoesFinais) throws SQLException {		
-		Consulta consulta = new Consulta(numeroProntuario, crm, dataHora, qpd, hda, is, peso, comprimento, perimetroCefalico, observacaoExameFisico, diagnostico, conduta, observacoesFinais);
-		
+		public void registrarConsulta(String numeroProntuario, int crm, String dataHora, String qpd, String hda,String is, double peso, double comprimento, double perimetroCefalico,
+				String observacaoExameFisico,String diagnostico, String conduta, String observacoesFinais) throws SQLException {
+		String sql = 
+					"INSERT INTO bancopediatria.consultas(paciente_numeroprontuario,pediatra_crm,queixaprincipalduracao,historiadoencaatual,interrogatoriosintomatico," 
+				+   "peso,comprimento,perimetrocefalico,observacaoexamefisico,diagnostico,conduta,observacoesfinais,dataehora ) "
+				+   "VALUES	(?,?,?,?,?,?,?,?,?,?,?,?,?);";
+		setStm(con.prepareStatement(sql));
+		stm.setString(1, numeroProntuario);
+		stm.setInt(2, crm);
+		stm.setString(3,qpd);
+		stm.setString(4,hda);
+		stm.setString(5,is);
+		stm.setDouble(6,peso);
+		stm.setDouble(7,comprimento);
+		stm.setDouble(8,perimetroCefalico);
+		stm.setString(9, observacaoExameFisico);
+		stm.setString(10,diagnostico);
+		stm.setString(11, conduta);
+		stm.setString(12, observacoesFinais);		
+		stm.setString(13, dataHora);
+		stm.execute();
 		
 	}
 
